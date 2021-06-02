@@ -28,6 +28,8 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         categories[column] = categories[column].str[-1]
         # convert column from string to numeric
         categories[column] = categories[column].astype(int)
+    # replace value of 2 with 1
+    categories = categories.replace(2, 1)
     df = df.drop("categories", axis=1)
     df = pd.concat([df, categories], axis=1)
     # drop duplicates
@@ -39,8 +41,8 @@ def save_data(df, database_filename):
     """
     save the df as SQL db
     """
-    engine = create_engine(f"sqlite:///{database_filename}.db")
-    df.to_sql('DisasterResponse', engine, index=False)
+    engine = create_engine(f"sqlite:///{database_filename}")
+    df.to_sql('DisasterResponse', engine, if_exists='replace', index=False)
 
 
 def main():
@@ -57,6 +59,7 @@ def main():
 
         print("Cleaning data...")
         df = clean_data(df)
+        print(df.related.unique())
 
         print("Saving data...\n    DATABASE: {}".format(database_filepath))
         save_data(df, database_filepath)
