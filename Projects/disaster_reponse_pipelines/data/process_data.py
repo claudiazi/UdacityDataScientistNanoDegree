@@ -1,4 +1,5 @@
 import sys
+
 import pandas as pd
 from sqlalchemy import create_engine
 
@@ -42,7 +43,7 @@ def save_data(df, database_filename):
     save the df as SQL db
     """
     engine = create_engine(f"sqlite:///{database_filename}")
-    df.to_sql('DisasterResponse', engine, if_exists='replace', index=False)
+    df.to_sql("DisasterResponse", engine, if_exists="replace", index=False)
 
 
 def main():
