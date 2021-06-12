@@ -5,10 +5,10 @@ This project is to build a simple web App using data from  [Figure Eight](https:
 
 ### Application
 An emergency worker input a new message and get classification results in several categories. 
-![Screenshot of Web App - Classification](Classification.PNG)
+![Screenshot of Web App - Classification](Classification.png)
 
 The App will also display visualizations of the data.
-![Screenshot of Web App - Visualisation](Visualisation.PNG)
+![Screenshot of Web App - Visualisation](Visualisation.png)
 
 ## File Description
 ~~~~~~~
